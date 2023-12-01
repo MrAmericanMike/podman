@@ -7,6 +7,15 @@ COPY ./server ./
 
 RUN npm install
 
+WORKDIR "/svelte"
+
+COPY ./svelte ./
+
+RUN npm install
+RUN npm run build
+
+WORKDIR "/server"
+
 ENV NODE_ENV="production"
 ENV PORT=3000
 
