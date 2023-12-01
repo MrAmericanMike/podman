@@ -1,3 +1,5 @@
 node_modules/
+/server/public/
+/svelte/.svelte-kit/
 .env
 pnpm-lock.yaml
