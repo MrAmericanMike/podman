@@ -1,5 +1,6 @@
 import Koa from "koa";
 import Router from "@koa/router";
+import Send from "koa-send";
 import Static from "koa-static";
 import HTTP from "http";
 import MATE from "emoji-mate";
@@ -18,6 +19,11 @@ API.get("/", (ctx, next) => {
 APP.use(ROUTER.routes()).use(ROUTER.allowedMethods());
 APP.use(API.routes()).use(API.allowedMethods());
 APP.use(PUBLIC);
+
+APP.use(async (ctx, next) => {
+	await Send(ctx, "index.html", { root: "public" });
+	return next();
+});
 
 const SERVER = HTTP.createServer(APP.callback());
 
