@@ -1,16 +1,13 @@
-<script>
-	export let data;
-
-	console.log(data.message);
+<script lang="ts">
+	import "../global.css";
 </script>
 
-<h1>Hello {data.message}</h1>
+<main>
+	<h1>SvelteKit TS</h1>
+</main>
 
 <style>
 	h1 {
-		color: royalblue;
-		text-transform: uppercase;
-		font-size: 4em;
 		text-align: center;
 	}
 </style>

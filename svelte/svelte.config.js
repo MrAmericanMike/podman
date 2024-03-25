@@ -1,27 +1,23 @@
 import adapter from "@sveltejs/adapter-static";
-import { resolve } from "path";
+import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 
 /** @type {import("@sveltejs/kit").Config} */
 const config = {
+	preprocess: vitePreprocess(),
 	kit: {
+		appDir: "app",
+		files: {
+			appTemplate: "src/index.html",
+			assets: "src/public"
+		},
 		adapter: adapter({
 			pages: "../server/public",
 			assets: "../server/public",
 			fallback: "index.html",
 			precompress: false
-		}),
-		files: {
-			assets: "src/static",
-			appTemplate: "src/index.html"
-		},
-		appDir: "app",
-		serviceWorker: {
-			register: false
-		},
-		alias: {
-			$: resolve("./src")
-		}
+		})
 	}
 };
 
 export default config;
+
