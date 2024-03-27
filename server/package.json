@@ -5,8 +5,8 @@
 	"author": "MrAmericanMike",
 	"main": "src/main.js",
 	"scripts": {
-		"start": "pnpm tsc && node dist/main.js",
-		"dev": "pnpm tsc && node -r dotenv/config dist/main.js",
+		"start": "pnpm vite:build && pnpm tsc && node dist/src/main.js",
+		"dev": "pnpm vite:build && pnpm tsc && node -r dotenv/config dist/src/main.js",
 		"tsc": "tsc",
 		"vite:dev": "vite",
 		"vite:build": "tsc && vite build",

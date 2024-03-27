@@ -10,9 +10,6 @@ const ROUTER = new Router();
 const API = new Router({ prefix: "/api" });
 const PUBLIC = Static("./public");
 
-console.log("*****");
-console.log(PUBLIC);
-
 API.get("/", (ctx, next) => {
 	ctx.response.status = 200;
 	ctx.body = { message: MATE };
@@ -26,4 +23,7 @@ const SERVER = HTTP.createServer(APP.callback());
 
 SERVER.listen(PORT, () => {
 	console.log(`Server Started · PORT: ${PORT}`);
+	if (process.env.LOCAL) {
+		console.log(`http://localhost:${PORT}/`);
+	}
 });
