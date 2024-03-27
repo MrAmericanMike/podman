@@ -29,4 +29,7 @@ const SERVER = HTTP.createServer(APP.callback());
 
 SERVER.listen(PORT, () => {
 	console.log(`Server Started · PORT: ${PORT}`);
+	if (process.env.LOCAL) {
+		console.log(`http://localhost:${PORT}/`);
+	}
 });
